@@ -27,7 +27,7 @@ class Table extends Component {
         </tr>
         <tbody>
           {expenses.map((item, index) => (
-            <tr key={ index }>
+            <tr key={ item.id }>
               <td>{item.description}</td>
               <td>{item.tag}</td>
               <td>{item.method}</td>
@@ -49,20 +49,7 @@ class Table extends Component {
                 <button
                   type="button"
                   data-testid="delete-btn"
-                  id={ `myBtn-${index}` }
-                  onClick={ () => {
-                    const btn = document.getElementById(`myBtn-${index}`);
-                    const myBtn = document.createElement('button');
-                    myBtn.setAttribute('data-testid', 'delete-btn');
-                    const paiMyBtn = document.getElementById('buttons-edit-delete');
-                    btn.remove();
-                    paiMyBtn.appendChild(myBtn);
-                    const valor = document.getElementById('la');
-                    myBtn.addEventListener('click', () => {
-                      valor.innerText = '0.00';
-                    });
-                    this.handleDelete(index);
-                  } }
+                  onClick={ () => this.handleDelete(index) }
                 >
                   Deletar
                 </button>
