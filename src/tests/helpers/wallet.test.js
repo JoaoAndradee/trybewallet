@@ -42,10 +42,4 @@ describe(('Validação da página de carteira'), () => {
     const expenseValue = screen.getByTestId('total-field');
     waitFor(() => expect(expenseValue).toBe(5.29));
   });
-  test('aleatorio', () => {
-    const coins = screen.getByRole('combobox', {
-      name: /moeda:/i,
-    });
-    userEvent.click(coins);
-  });
 });
