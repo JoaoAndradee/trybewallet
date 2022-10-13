@@ -1,3 +1,4 @@
+import { DELETE_ROW } from '../actions/actionDeleteRow';
 import { GET_CURRENCIES } from '../actions/currenciesFetch';
 import { GET_QUOTATION } from '../actions/quotationFetch';
 
@@ -18,6 +19,12 @@ function walletReducer(state = INITIAL_STATE, action) {
       ...state,
       expenses: [...state.expenses, action.payload],
     };
+  case DELETE_ROW: {
+    return {
+      ...state,
+      expenses: [...action.payload],
+    };
+  }
   default:
     return state;
   }
